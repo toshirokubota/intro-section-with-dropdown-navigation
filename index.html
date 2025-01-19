@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <div id="nav-bar">
+      <img src="./images/logo.svg" alt="a logo of SNAP" />
+      <div id="menu-area">
+        <div class="menu-card">
+          <img src="./images/icon-close-menu.svg" alt="menu close icon" onclick="close_menu()"/>
+          <ul>
+            <li class="menu-item" onclick="toggle_submenu(event)">Features
+              <img src="./images/icon-arrow-down.svg" alt="a down arrow"/>
+              <div class="dropdown-card">
+                <ul>
+                  <li><img src="./images/icon-todo.svg" alt="todo list icon"/>Todo list</li>
+                  <li><img src="./images/icon-calendar.svg" alt="calendar icon"/>Calendar</li>
+                  <li><img src="./images/icon-reminders.svg" alt="reminders icon"/>Reminders</li>
+                  <li><img src="./images/icon-planning.svg" alt="reminders icon"/>Planning</li>
+                </ul>
+              </div>
+            </li>  
+            <li class="menu-item"  onclick="toggle_submenu(event)">Company
+              <img src="./images/icon-arrow-down.svg" alt="a down arrow"/>
+              <div class="dropdown-card">
+                <ul>
+                  <li>History</li>
+                  <li>Our Team</li>
+                  <li>Blog</li>
+                </ul>
+              </div>
+            </li>
+            <li class="menu-item">Careers</li>
+            <li class="menu-item">About</li>
+            <li class="menu-item separated-item centered-item">Login</li>
+            <li class="menu-item centered-item">
+              <button class="register-button">Register</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-logo">
+        <img src="./images/icon-menu.svg" alt="hamburger menu icon" onclick="open_menu()"/>
+      </div>
+    </div>
+    <div id="modal">
+      <div class="modal-backdrop"></div>
+    </div>
+    <div>
+      <picture>
+        <source srcset="./images/image-hero-desktop.png" media="(min-width: 640pt)">
+        <source srcset="./images/image-hero-mobile.png" media="(min-width: 128pt)">
+        <img id='hero-image' src="./images/image-hero-mobile.png" alt="title picture of SNAP" />
+      </picture>
+    </div>
+    <h1 class="text-preset1">
+      Make remote work
+    </h1>
+    <div class="text-preset2 centered">
+      Get your team in sync, no matter your location. Streamline processes,
+      create team rituals, and watch productivity soar.
+    </div>
+    <button class="learn-more-button">
+      Learn more
+    </button>
+    <div class="client-logos">
+      <img src="./images/client-databiz.svg" alt="client databiz logo"/>
+      <img src="./images/client-audiophile.svg" alt="client audiophile logo"/>
+      <img src="./images/client-meet.svg" alt="client meet logo"/>
+      <img src="./images/client-maker.svg" alt="client maker logo"/>
+    </div>
+
+  </main>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </footer>
+</body>
+<script>
+  const setup_menu = () => {
+    console.log(window.innerWidth);
+    if(window.innerWidth < 500) {
+      document.getElementById('modal').appendChild(document.getElementById('menu-area'));
+      console.log('moved menu-area under modal');
+    } else {
+      document.getElementById('nav-bar').appendChild(document.getElementById('menu-area'));
+      console.log('moved menu-area under nav-bar');
+    }
+  }
+  window.onload = setup_menu;
+  window.onresize = setup_menu;
+
+  const open_menu = () => {
+    document.getElementById('menu-area').style.display = 'block';
+    document.getElementById('modal').style.display = 'block';
+    console.log('clicked');
+  }
+  const close_menu = () => {
+    document.getElementById('menu-area').style.display = 'none';
+    document.getElementById('modal').style.display = 'none';
+  }
+  const toggle_submenu = (e) => {
+    // console.log(e);
+    let elm = e.srcElement;
+    let submenu = elm.querySelector('.dropdown-card');
+    let img = elm.querySelector('img');
+    if(submenu.style.display == 'none') {
+      submenu.style.display = 'block';
+      img.src = './images/icon-arrow-up.svg';
+    } else {
+      submenu.style.display = 'none';
+      img.src = './images/icon-arrow-down.svg';
+    }
+  }
+</script>
+</html>
