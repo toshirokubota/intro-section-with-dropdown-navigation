@@ -98,7 +98,9 @@ Use this section to outline areas that you want to continue focusing on in futur
 **Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 https://www.youtube.com/watch?v=OjQP7rPwJyE
+https://stackoverflow.com/questions/1553661/how-to-get-the-onclick-calling-object
 
+A list item disappears with a dropdown menu...
 
 ## Author
 

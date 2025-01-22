@@ -57,6 +57,7 @@
 }
 .register-button:hover, .register-button:focus {
     cursor: pointer;
+    font-weight: 700;
 }
 .login-item {
     margin-top: 3em;
@@ -71,7 +72,7 @@ li {
     font-size: 14px;
     /* padding: 1em; */
     /* line-height: 200%; */
-    display: block;
+    /* display: block; */
     color: var(--medium-gray);
 
 }
@@ -80,7 +81,7 @@ li:hover, li:focus {
     cursor: pointer;
 }
 body {
-    background-color: var(--almost-white);
+    background-color: white;
     font-size: 16px;
     font-family: "Epilogue", serif;
 }
@@ -89,11 +90,11 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 50px;
-    margin: 2em;
+    margin: 1em;
 }
 nav {
-    width: 100%;
-    z-index: 2;
+    width: 90%;
+    /* z-index: 2; */
     padding: 0 2em;
 }
 #top-menu {
@@ -103,30 +104,44 @@ nav {
     align-items:start;
 }
 main {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr;
+    /* flex-direction: column;
     align-items: center;
-    gap: 8em;
-    margin: 1em 1em;
+    gap: 8em; */
+    margin: 1em 0em;
+    gap: 1em;
 }
-main > section:first-child {
-    flex: 1 1 33%;
+main > picture {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    /* object-fit: contain;
+    width: 100%; */
 }
-main > section:last-child {
-    flex: 1 1 37%;
+main > .narrative {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    margin: 1em;
+}
+main > .narrative > .text-preset2{
+    text-align: center;
+    text-wrap: pretty;
+}
+main > .client-logos {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    align-self: flex-start;
 }
 #hero-image {
     object-fit: contain;
     width: 100%;
+    height: 100%;
 }
 h1 {
     font-size: 36px;
     font-weight: 700;
-}
-.column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    letter-spacing: -0.5px;
 }
 .narrative {
     display: flex;
@@ -178,11 +193,10 @@ h1 {
 .dropdown-card {
     display: none;
     background-color: white;
-    /* padding: 1em; */
-    margin: 1em;
+    padding: 1em;
     border-radius: 1em;
     position: relative;
-    /* left: -3em; */
+    left: 1em;
 }
 .dropdown-card > ul {
     display: flex;
@@ -190,6 +204,13 @@ h1 {
 }
 .dropdown-card > ul > li > img {
     padding-right: 1em;
+}
+.menu-item {
+    display: block;
+    position: relative;
+}
+.menu-item > span {
+    vertical-align: top;
 }
 .menu-item > img {
     pointer-events: none;
@@ -205,13 +226,16 @@ h1 {
 #modal {
     display: none;
 }
+#modal > .menu-area > img:hover, #modal > .menu-area > img:focus {
+    cursor: pointer;
+}
 .modal-backdrop {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(128,128,128,0.75);
+    background-color: rgba(0,0,0,0.75);
     z-index: 1;
 }
 
@@ -221,6 +245,19 @@ h1 {
         align-items: center;
         gap: 2em;
         /* background-color: white; */
+    }
+    .dropdown-card {
+        position: absolute;
+    }
+    .dropdown-card.features {
+        top: 2em;
+        left: -5em;
+        width: 11em;
+    }
+    .dropdown-card.company {
+        top: 2em;
+        left: 0em;
+        width: 8em;
     }
     #hamburger {
         display: none;
@@ -233,19 +270,31 @@ h1 {
     .register-button {
         width: 8em;
     }
+    body {
+        background-color: var(--almost-white);
+    }
     main {
-        flex-direction: row-reverse;
-        margin: 3em;
-        gap: 5em;
+        max-height: 900px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        margin: 1em 8em;
+        gap: 8em;
     }
-    .column {
+    main > picture {
+        grid-column: 2/3;
+        grid-row: 1/4;
+    }
+    main > .narrative {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    main > .client-logos {
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+    /* #hero-image {
         height: 80vh;
-        padding-top: 5em;
-        margin-left: 5em;
-    }
-    #hero-image {
-        height: 80vh;
-    }
+    } */
     h1 {
         font-size: 80px;
     }

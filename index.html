@@ -32,9 +32,9 @@
     <img src="./images/logo.svg" alt="a logo of SNAP" />
     <nav id="nav-bar">
       <ul id="top-menu">
-        <li class="menu-item" onclick="toggle_submenu(event)">Features
+        <li class="menu-item" onclick="toggle_submenu(this,event)"><span>Features</span>
           <img src="./images/icon-arrow-down.svg" alt="a down arrow"/>
-          <div class="dropdown-card">
+          <div class="dropdown-card features">
             <ul>
               <li><img src="./images/icon-todo.svg" alt="todo list icon"/>Todo list</li>
               <li><img src="./images/icon-calendar.svg" alt="calendar icon"/>Calendar</li>
@@ -43,9 +43,9 @@
             </ul>
           </div>
         </li>  
-        <li class="menu-item"  onclick="toggle_submenu(event)">Company
+        <li class="menu-item"  onclick="toggle_submenu(this,event)">Company
           <img src="./images/icon-arrow-down.svg" alt="a down arrow"/>
-          <div class="dropdown-card">
+          <div class="dropdown-card company">
             <ul>
               <li>History</li>
               <li>Our Team</li>
@@ -53,11 +53,11 @@
             </ul>
           </div>
         </li>
-        <li class="menu-item">Careers</li>
-        <li class="menu-item">About</li>
-        <li class="menu-item login-item">Login</li>
+        <li class="menu-item"><span>Careers</span></li>
+        <li class="menu-item"><span>About</span></li>
+        <li class="menu-item login-item"><span>Login</span></li>
         <li class="menu-item register-item">
-          <button class="register-button">Register</button></li>
+          <button class="register-button"><span>Register</span></button></li>
       </ul>
       <div id="hamburger">
         <img src="./images/icon-menu.svg" alt="hamburger menu icon" onclick="open_menu()"/>
@@ -72,33 +72,29 @@
     </div>
   </div>
   <main>
-    <section>
-      <picture>
-        <source srcset="./images/image-hero-desktop.png" media="(min-width: 800px)">
-        <source srcset="./images/image-hero-mobile.png" media="(min-width: 128px)">
-        <img id='hero-image' src="./images/image-hero-mobile.png" alt="title picture of SNAP" />
-      </picture>
-    </section>
-    <section class="column">
-      <div class="narrative">
-        <h1>
-          Make remote work
-        </h1>
-        <div class="text-preset2">
-          Get your team in sync, no matter your location. Streamline processes,
-          create team rituals, and watch productivity soar.
-        </div>
-        <button class="learn-more-button">
-          Learn more
-        </button>
+    <picture>
+      <source srcset="./images/image-hero-desktop.png" media="(min-width: 800px)">
+      <source srcset="./images/image-hero-mobile.png" media="(min-width: 128px)">
+      <img id='hero-image' src="./images/image-hero-mobile.png" alt="title picture of SNAP" />
+    </picture>
+    <div class="narrative">
+      <h1>
+        Make remote work
+      </h1>
+      <div class="text-preset2">
+        Get your team in sync, no matter your location. Streamline processes,
+        create team rituals, and watch productivity soar.
       </div>
-      <div class="client-logos">
-        <img src="./images/client-databiz.svg" alt="client databiz logo"/>
-        <img src="./images/client-audiophile.svg" alt="client audiophile logo"/>
-        <img src="./images/client-meet.svg" alt="client meet logo"/>
-        <img src="./images/client-maker.svg" alt="client maker logo"/>
-      </div>  
-    </section>
+      <button class="learn-more-button">
+        Learn more
+      </button>
+    </div>
+    <div class="client-logos">
+      <img src="./images/client-databiz.svg" alt="client databiz logo"/>
+      <img src="./images/client-audiophile.svg" alt="client audiophile logo"/>
+      <img src="./images/client-meet.svg" alt="client meet logo"/>
+      <img src="./images/client-maker.svg" alt="client maker logo"/>
+    </div>  
   </main>
   <footer>
     <div class="attribution">
@@ -132,13 +128,15 @@
     document.getElementById('hamburger').style.display = 'block';
     document.getElementById('modal').style.display = 'none';
   }
-  const toggle_submenu = (e) => {
-    let elm = e.srcElement;
+  const toggle_submenu = (elm, event) => {
+    // console.log(elm, event);
+    // let elm = e.srcElement;
+    // event.preventDefault();
     let submenu = elm.querySelector('.dropdown-card');
     let img = elm.querySelector('img');
     //console.log(submenu, submenu.style, submenu.style.display);
     if(!submenu.style.display || submenu.style.display == 'none') {
-      submenu.style.display = 'block';
+      submenu.style.display = 'flex';
       img.src = './images/icon-arrow-up.svg';
       console.log('opened');
     } else {
