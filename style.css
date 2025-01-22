@@ -45,40 +45,46 @@
 }
 .register-button {
     background-color: var(--almost-white);
-    color: var(--almost-black);
-    border: solid 1pt var(--almost-black);
+    color: var(--medium-gray);
+    border: solid 1pt var(--medium-gray);
     border-radius: 1em;
     font-size: 14px;
     padding: 0.8em 1.5em;
-    margin: 0.5em;
+    margin: 0 auto;
     /* align-self: center; */
     width: 14em;
     vertical-align: baseline;
 }
 .register-button:hover, .register-button:focus {
+    color: var(--almost-black);
+    border: solid 1pt var(--almost-black);
     cursor: pointer;
-    font-weight: 700;
 }
 .login-item {
-    margin-top: 2em;
-    align-self: center;
+    width: 5em;
+    margin: 3em auto 0 auto;
+    text-align: center;
+    /* align-self: center; */
 }
 .register-item {
     align-self: center;
 }
 li {
     list-style-type: none;
-    margin: 1em;
+    margin: 2em 1em;
     font-size: 14px;
     /* padding: 0.5em; */
     /* line-height: 200%; */
     /* display: block; */
     color: var(--medium-gray);
-
 }
-li:hover, li:focus {
+li:hover, li:focus, a:hover, a:focus {
     color: var(--almost-black);
     cursor: pointer;
+}
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 body {
@@ -94,15 +100,15 @@ header {
     height: 50px;
     margin: 1em;
 }
-nav {
+/* nav {
     width: 90%;
     padding: 0 2em;
-}
+} */
 #top-menu {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    /* flex-direction: column;
     justify-content: space-evenly;
-    align-items:start;
+    align-items:start; */
 }
 /* .menu-item {
     padding: 0.5em;
@@ -191,7 +197,7 @@ h1 {
     display: block;
     width: 1.5em;
     height: 1.5em;
-    margin-left: auto;
+    margin: 0 1em 0 auto;
 }
 .dropdown-card {
     display: none;
@@ -201,10 +207,10 @@ h1 {
     position: relative;
     left: 1em;
 }
-.dropdown-card > ul {
+/* .dropdown-card > ul {
     display: flex;
     flex-direction: column;
-}
+} */
 .dropdown-card > ul > li > img {
     padding-right: 1em;
 }
@@ -243,7 +249,12 @@ h1 {
 }
 
 @media only screen and (min-width: 800px) {
+    nav {
+        width: 90%;
+        padding: 0 2em;
+    }
     #top-menu {
+        display: flex;
         flex-direction: row;
         align-items: center;
         gap: 2em;
@@ -251,6 +262,7 @@ h1 {
     }
     .dropdown-card {
         position: absolute;
+        padding: 1em;
     }
     .dropdown-card.features {
         top: 2em;
@@ -263,15 +275,17 @@ h1 {
         width: 8em;
     }
     .dropdown-card li {
+        margin: 1em 0em;
         padding: 0em;
     }
     #hamburger {
         display: none;
     }
     .login-item {
-        margin-top: 0.5em;
+        /* margin-top: 0.5em; */
         /* align-self:auto; */
-        margin-left: auto;
+        /* margin-left: auto; */
+        margin: 0 0 0 auto;
     }
     .register-button {
         width: 8em;

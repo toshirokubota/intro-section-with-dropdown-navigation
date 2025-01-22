@@ -32,30 +32,34 @@
     <img src="./images/logo.svg" alt="a logo of SNAP" />
     <nav id="nav-bar">
       <ul id="top-menu">
-        <li class="menu-item" onclick="toggle_submenu(this,event)"><span>Features</span>
+        <li class="menu-item clickable" tabindex=0 onclick="toggle_submenu(this,event)"><span>Features</span>
           <img src="./images/icon-arrow-down.svg" alt="a down arrow"/>
           <div class="dropdown-card features">
             <ul>
-              <li><img src="./images/icon-todo.svg" alt="todo list icon"/>Todo list</li>
-              <li><img src="./images/icon-calendar.svg" alt="calendar icon"/>Calendar</li>
-              <li><img src="./images/icon-reminders.svg" alt="reminders icon"/>Reminders</li>
-              <li><img src="./images/icon-planning.svg" alt="planning icon"/>Planning</li>
+              <li><img src="./images/icon-todo.svg" alt="todo list icon"/>
+                <a href="">Todo list</a></li>
+              <li><img src="./images/icon-calendar.svg" alt="calendar icon"/>
+                <a href="">Calendar</a></li>
+              <li><img src="./images/icon-reminders.svg" alt="reminders icon"/>
+                <a href="">Reminders</a></li>
+              <li><img src="./images/icon-planning.svg" alt="planning icon"/>
+                <a href="">Planning</a></li>
             </ul>
           </div>
         </li>  
-        <li class="menu-item"  onclick="toggle_submenu(this,event)">Company
+        <li class="menu-item clickable" tabindex=0 onclick="toggle_submenu(this,event)">Company
           <img src="./images/icon-arrow-down.svg" alt="a down arrow"/>
           <div class="dropdown-card company">
             <ul>
-              <li>History</li>
-              <li>Our Team</li>
-              <li>Blog</li>
+              <li><a href="">History</a></li>
+              <li><a href="">Our Team</a></li>
+              <li><a href="">Blog</a></li>
             </ul>
           </div>
         </li>
-        <li class="menu-item"><span>Careers</span></li>
-        <li class="menu-item"><span>About</span></li>
-        <li class="menu-item login-item"><span>Login</span></li>
+        <li class="menu-item"><a href="">Careers</a></li>
+        <li class="menu-item"><a href="">About</a></li>
+        <li class="menu-item login-item"><a href="">Login</a></li>
         <li class="menu-item register-item">
           <button class="register-button"><span>Register</span></button></li>
       </ul>
@@ -136,7 +140,7 @@
     let img = elm.querySelector('img');
     //console.log(submenu, submenu.style, submenu.style.display);
     if(!submenu.style.display || submenu.style.display == 'none') {
-      submenu.style.display = 'flex';
+      submenu.style.display = 'block';
       img.src = './images/icon-arrow-up.svg';
       console.log('opened');
     } else {
@@ -145,5 +149,13 @@
       console.log('closed');
     }
   }
+  const clickables = document.querySelectorAll('.menu-item.clickable');
+  [...clickables].forEach(elm => 
+    elm.addEventListener('keydown', function(event) { 
+    if (event.key === 'Enter' || event.key === ' ') { 
+      event.preventDefault(); // Prevent default behavior for the space key 
+      this.click(); // Trigger the click event 
+    }
+  }));
 </script>
 </html>
