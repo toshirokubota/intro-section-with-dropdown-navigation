@@ -49,7 +49,7 @@
     border: solid 1pt var(--almost-black);
     border-radius: 1em;
     font-size: 14px;
-    padding: 0.8em 2em;
+    padding: 0.8em 1.5em;
     margin: 0.5em;
     /* align-self: center; */
     width: 14em;
@@ -60,7 +60,7 @@
     font-weight: 700;
 }
 .login-item {
-    margin-top: 3em;
+    margin-top: 2em;
     align-self: center;
 }
 .register-item {
@@ -68,9 +68,9 @@
 }
 li {
     list-style-type: none;
-    margin: 0.5em;
+    margin: 1em;
     font-size: 14px;
-    /* padding: 1em; */
+    /* padding: 0.5em; */
     /* line-height: 200%; */
     /* display: block; */
     color: var(--medium-gray);
@@ -80,10 +80,12 @@ li:hover, li:focus {
     color: var(--almost-black);
     cursor: pointer;
 }
+
 body {
     background-color: white;
     font-size: 16px;
     font-family: "Epilogue", serif;
+    max-height: 100vh;
 }
 header {
     display: flex;
@@ -94,7 +96,6 @@ header {
 }
 nav {
     width: 90%;
-    /* z-index: 2; */
     padding: 0 2em;
 }
 #top-menu {
@@ -103,15 +104,16 @@ nav {
     justify-content: space-evenly;
     align-items:start;
 }
+/* .menu-item {
+    padding: 0.5em;
+} */
 main {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 0.5fr;
-    /* flex-direction: column;
-    align-items: center;
-    gap: 8em; */
     margin: 1em 0em;
     gap: 1em;
+    object-fit: contain;
 }
 main > picture {
     grid-column: 1/2;
@@ -124,11 +126,12 @@ main > .narrative {
     grid-row: 2/3;
     margin: 1em;
 }
-main > .narrative > .text-preset2{
+.narrative > p {
     text-align: center;
     text-wrap: pretty;
+    color: var(--medium-gray);
 }
-main > .client-logos {
+.client-logos {
     grid-column: 1/2;
     grid-row: 3/4;
     align-self: flex-start;
@@ -141,7 +144,7 @@ main > .client-logos {
 h1 {
     font-size: 36px;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: -1.11px;
 }
 .narrative {
     display: flex;
@@ -193,7 +196,7 @@ h1 {
 .dropdown-card {
     display: none;
     background-color: white;
-    padding: 1em;
+    /* padding: 1em; */
     border-radius: 1em;
     position: relative;
     left: 1em;
@@ -259,6 +262,9 @@ h1 {
         left: 0em;
         width: 8em;
     }
+    .dropdown-card li {
+        padding: 0em;
+    }
     #hamburger {
         display: none;
     }
@@ -275,22 +281,27 @@ h1 {
     }
     main {
         max-height: 900px;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        margin: 1em 8em;
-        gap: 8em;
+        grid-template-columns: 9fr 8fr;
+        grid-template-rows: 5fr 1fr;
+        margin: 4em 8em;
+        gap: 1em 5em;
+        justify-content: center;
+        align-content: center;
     }
     main > picture {
         grid-column: 2/3;
-        grid-row: 1/4;
+        grid-row: 1/3;
     }
     main > .narrative {
         grid-column: 1/2;
-        grid-row: 2/3;
+        grid-row: 1/2;
+        align-self: center;
     }
     main > .client-logos {
+        height: 2.5em;
         grid-column: 1/2;
-        grid-row: 3/4;
+        grid-row: 2/3;
+        align-self:self-end;
     }
     /* #hero-image {
         height: 80vh;
@@ -300,9 +311,16 @@ h1 {
     }
     .narrative {
         align-items: start;
-        width: 80%;
+        /* width: 100%; */
     }
-    .client-logos {
+    .narrative span {
+        display: block;
+    }
+    .narrative > p {
+        font-size: 18px;
+        text-align: left;
+    }
+    /* .client-logos {
         margin-top: auto;
-    }
+    } */
 }

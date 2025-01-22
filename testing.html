@@ -1,102 +1,123 @@
-<!DOCTYPE html>
+<!-- <!-- <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Menu</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Grid Align Self Example</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+            height: 200px;
+            border: 1px solid black;
         }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* Desktop Navigation */
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin: 0 15px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-        }
-
-        /* Mobile Navigation */
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger-menu div {
-            width: 25px;
-            height: 3px;
-            background-color: red;
-            margin: 4px 0;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hamburger-menu {
-                display: flex;
-            }
+        .item {
+            background-color: lightblue;
+            align-self: center; /* Center the item vertically */
         }
     </style>
 </head>
-
 <body>
-    <nav class="navbar">
-        <div class="logo">MySite</div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <div class="hamburger-menu" id="hamburger-menu">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </nav>
-    <!-- <script src="script.js"></script> -->
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+    </div>
 </body>
-<script>
-    document.getElementById('hamburger-menu').addEventListener('click', function () {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('active');
-        console.log('clicked');
-    });
+</html> -->
 
-</script>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Justify and Align Items Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 10px;
+    height: 300px;
+    border: 2px solid black;
+    justify-items: center; /* Center items horizontally within each grid cell */
+    align-items: center;   /* Center items vertically within each grid cell */
+}
 
+.grid-item {
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    width: 100px; /* Define width to see the effect of centering */
+    height: 50px; /* Define height to see the effect of centering */
+}
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consistent Margins for Nested Lists</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+ul,
+li {
+    margin: 0; /* Reset default margins */
+    padding: 0; /* Reset default padding */
+}
+
+.outer-list > li,
+.inner-list > li {
+    margin: 10px;
+}
+.outer-list,
+.inner-list {
+    list-style: none; 
+}
+/* .outer-list > li > ul {
+    margin-top: -10px; 
+}
+
+
+
+.outer-list > li {
+    background-color: lightblue;
+    padding: 5px;
+}
+
+.inner-list > li {
+    background-color: lightcoral;
+    padding: 5px;
+    margin-left: 20px; 
+} */
+    </style>
+</head>
+<body>
+    <ul class="outer-list">
+        <li>Item 1</li>
+        <li>Item 2
+            <ul class="inner-list">
+                <li>Subitem 2.1</li>
+                <li>Subitem 2.2</li>
+            </ul>
+        </li>
+        <li>Item 3</li>
+    </ul>
+</body>
 </html>
