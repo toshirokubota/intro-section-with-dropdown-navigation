@@ -33,11 +33,12 @@
     border-radius: 1em;
     font-size: 16px;
     padding: 1em 2em;
+    border: solid 1pt transparent;
 }
 .learn-more-button:hover, .learn-more-button:focus {
     background-color: var(--almost-white);
     color: var(--almost-black);
-    border: solid 1pt var(--almost-black);
+    border-color: var(--almost-black);
 }
 .register-button {
     background-color: var(--almost-white);
