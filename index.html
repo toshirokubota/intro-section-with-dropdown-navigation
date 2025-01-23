@@ -60,18 +60,18 @@
         <li class="menu-item"><a href="">Careers</a></li>
         <li class="menu-item"><a href="">About</a></li>
         <li class="menu-item login-item"><a href="">Login</a></li>
-        <li class="menu-item register-item">
+        <li class="menu-item">
           <button class="register-button"><span>Register</span></button></li>
       </ul>
       <div id="hamburger">
-        <img src="./images/icon-menu.svg" alt="hamburger menu icon" onclick="open_menu()"/>
+        <img src="./images/icon-menu.svg" alt="hamburger menu icon" tabindex=0 class="clickable" onclick="open_menu()"/>
       </div>
     </nav>
   </header>
   <div id="modal">
     <div class="modal-backdrop"></div>
     <div class="menu-area">
-      <img src="./images/icon-close-menu.svg" alt="menu close icon" onclick="close_menu()"/>
+      <img src="./images/icon-close-menu.svg" alt="menu close icon" tabindex=0 class="clickable" onclick="close_menu()"/>
       <div id="menu-card"></div>
     </div>
   </div>
@@ -109,7 +109,6 @@
 </body>
 <script>
   const setup_menu = () => {
-    //console.log(window.innerWidth);
     if(window.innerWidth < 800) {
       document.getElementById('hamburger').style.display = 'block';
       document.getElementById('menu-card').appendChild(document.getElementById('top-menu'));
@@ -133,12 +132,8 @@
     document.getElementById('modal').style.display = 'none';
   }
   const toggle_submenu = (elm, event) => {
-    // console.log(elm, event);
-    // let elm = e.srcElement;
-    // event.preventDefault();
     let submenu = elm.querySelector('.dropdown-card');
     let img = elm.querySelector('img');
-    //console.log(submenu, submenu.style, submenu.style.display);
     if(!submenu.style.display || submenu.style.display == 'none') {
       submenu.style.display = 'block';
       img.src = './images/icon-arrow-up.svg';
@@ -149,12 +144,12 @@
       console.log('closed');
     }
   }
-  const clickables = document.querySelectorAll('.menu-item.clickable');
+  const clickables = document.querySelectorAll('.clickable');
   [...clickables].forEach(elm => 
     elm.addEventListener('keydown', function(event) { 
     if (event.key === 'Enter' || event.key === ' ') { 
-      event.preventDefault(); // Prevent default behavior for the space key 
-      this.click(); // Trigger the click event 
+      event.preventDefault(); 
+      this.click();  
     }
   }));
 </script>
